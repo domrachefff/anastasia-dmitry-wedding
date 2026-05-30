@@ -1,0 +1,964 @@
+/* ------------------------
+   ОСНОВНЫЕ НАСТРОЙКИ
+------------------------ */
+
+:root {
+
+    --cream: #f7f2eb;
+    --beige: #e6d7c3;
+    --brown: #7c5d45;
+    --dark-brown: #3b2b24;
+    --pink: #d8b3ab;
+    --olive: #8a9270;
+    --blue: #bfd9e6;
+    --orange: #d8b18a;
+    --black: #111111;
+    --white: #ffffff;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:var(--cream);
+
+    color:var(--dark-brown);
+
+    font-family:'Montserrat',sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+/* ------------------------
+   ОБЩИЕ СЕКЦИИ
+------------------------ */
+
+section{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:80px 20px;
+
+}
+
+h1,h2,h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-weight:600;
+
+    text-align:center;
+
+}
+
+h1{
+
+    font-size:4rem;
+
+}
+
+h2{
+
+    font-size:3rem;
+
+    margin-bottom:30px;
+
+}
+
+p{
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+/* ------------------------
+   КОНВЕРТ
+------------------------ */
+
+#intro{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+    linear-gradient(
+    rgba(255,255,255,.8),
+    rgba(255,255,255,.8)
+    ),
+    var(--cream);
+
+}
+
+.invite-title{
+
+    margin-bottom:50px;
+
+    letter-spacing:2px;
+
+}
+
+.envelope-wrapper{
+
+    position:relative;
+
+    width:340px;
+
+    height:220px;
+
+    cursor:pointer;
+
+}
+
+.envelope-top{
+
+    position:absolute;
+
+    width:100%;
+    height:50%;
+
+    background:#fff;
+
+    clip-path:polygon(
+    0 0,
+    100% 0,
+    50% 100%
+    );
+
+    z-index:3;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.envelope-bottom{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+    height:70%;
+
+    background:#fff;
+
+    border-radius:0 0 10px 10px;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+
+}
+
+.seal{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:80px;
+    height:80px;
+
+    border-radius:50%;
+
+    background:#9f6c4f;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-family:'Cormorant Garamond';
+
+    font-size:30px;
+
+    z-index:10;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.25);
+
+}
+
+.tap-text{
+
+    margin-top:40px;
+
+    color:#999;
+
+    animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.3;
+    }
+
+}
+
+/* ------------------------
+   HERO
+------------------------ */
+
+#hero{
+
+    overflow:hidden;
+
+    padding:0;
+
+}
+
+.hero-image{
+
+    width:100%;
+    height:100vh;
+
+    object-fit:cover;
+
+    filter:blur(12px);
+
+    transform:scale(1.1);
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.4)
+    );
+
+    z-index:1;
+
+}
+
+.hero-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    z-index:2;
+
+}
+
+.hero-content p{
+
+    font-size:1.3rem;
+
+    margin-top:10px;
+
+}
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:40px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:white;
+
+    font-size:2rem;
+
+    z-index:3;
+
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translate(-50%,0);
+    }
+
+    50%{
+        transform:translate(-50%,10px);
+    }
+
+}
+
+/* ------------------------
+   ДАТА СВАДЬБЫ
+------------------------ */
+
+#date{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        to bottom,
+        #f7f2eb,
+        #efe4d5
+    );
+
+}
+
+.scratch-container{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+
+    margin:50px 0;
+
+}
+
+#scratch-day,
+#scratch-month,
+#scratch-year{
+
+    width:140px;
+    height:140px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
+
+}
+
+#date-reveal{
+
+    display:flex;
+    gap:25px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:2rem;
+
+    margin-top:30px;
+
+    opacity:0;
+
+    transition:.6s;
+
+}
+
+#date-reveal.show{
+
+    opacity:1;
+
+}
+
+#invited-text{
+
+    margin-top:40px;
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.8s;
+
+}
+
+#invited-text.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ------------------------
+   ПИСЬМО
+------------------------ */
+
+#letter{
+
+    background:#fffaf5;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.letter-envelope{
+
+    width:360px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.1);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.letter-paper{
+
+    font-size:1.1rem;
+
+    line-height:2;
+
+    text-align:center;
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+/* ------------------------
+   ТАЙМЕР
+------------------------ */
+
+#countdown{
+
+    background:
+    linear-gradient(
+        rgba(191,217,230,.5),
+        rgba(191,217,230,.25)
+    );
+
+    text-align:center;
+
+}
+
+#timer{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+#timer div{
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+}
+
+#timer span{
+
+    font-size:2.6rem;
+
+    font-weight:600;
+
+}
+
+#timer small{
+
+    margin-top:10px;
+
+    color:#777;
+
+}
+
+/* ------------------------
+   ЛОКАЦИИ
+------------------------ */
+
+.location{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.location p{
+
+    max-width:600px;
+
+    font-size:1.15rem;
+
+}
+
+/* ------------------------
+   ИСТОРИЯ ЛЮБВИ
+------------------------ */
+
+#story{
+
+    background:white;
+
+}
+
+.story-block{
+
+    max-width:1100px;
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:40px;
+
+    align-items:center;
+
+}
+
+.story-block img{
+
+    width:100%;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.story-block p{
+
+    font-size:1.1rem;
+
+}
+
+/* ------------------------
+   ПРОГРАММА ДНЯ
+------------------------ */
+
+#timeline{
+
+    background:#faf6f0;
+
+    text-align:center;
+
+}
+
+.timeline-line{
+
+    width:6px;
+
+    height:700px;
+
+    background:var(--blue);
+
+    margin:50px auto;
+
+    border-radius:100px;
+
+    position:relative;
+
+}
+
+.heart-marker{
+
+    width:40px;
+    height:40px;
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:
+    translateX(-50%)
+    rotate(45deg);
+
+    background:var(--blue);
+
+}
+
+.heart-marker::before,
+.heart-marker::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:40px;
+    height:40px;
+
+    background:var(--blue);
+
+    border-radius:50%;
+
+}
+
+.heart-marker::before{
+
+    left:-20px;
+
+}
+
+.heart-marker::after{
+
+    top:-20px;
+
+}
+
+.event{
+
+    max-width:500px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ------------------------
+   ДРЕСС-КОД
+------------------------ */
+
+#dresscode{
+
+    text-align:center;
+
+}
+
+.palette{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    margin-top:50px;
+
+}
+
+.color{
+
+    width:80px;
+    height:80px;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.color:nth-child(1){background:#7c5d45;}
+.color:nth-child(2){background:#b48b63;}
+.color:nth-child(3){background:#e6d7c3;}
+.color:nth-child(4){background:#d8b3ab;}
+.color:nth-child(5){background:#8a9270;}
+.color:nth-child(6){background:#d8b18a;}
+.color:nth-child(7){background:#bfd9e6;}
+.color:nth-child(8){background:#111111;}
+
+/* ------------------------
+   RSVP
+------------------------ */
+
+#rsvp{
+
+    text-align:center;
+
+    background:white;
+
+}
+
+#guest-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    max-width:450px;
+
+    margin:40px auto;
+
+}
+
+#guest-form input{
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#f3ede5;
+
+}
+
+#guest-form button{
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--brown);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#guest-form button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ------------------------
+   ФИНАЛ
+------------------------ */
+
+#final{
+
+    overflow:hidden;
+
+    padding:0;
+
+}
+
+#final img{
+
+    width:100%;
+
+    height:100vh;
+
+    object-fit:cover;
+
+}
+
+.final-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.2),
+        rgba(0,0,0,.4)
+    );
+
+}
+
+.final-content h2{
+
+    font-size:4rem;
+
+}
+
+.final-content p{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    font-size:1.3rem;
+
+}
+
+#petals{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:5;
+
+    pointer-events:none;
+
+}
+
+/* ------------------------
+   АДАПТИВ
+------------------------ */
+
+@media(max-width:768px){
+
+    h1{
+
+        font-size:2.8rem;
+
+    }
+
+    h2{
+
+        font-size:2.2rem;
+
+    }
+
+    .story-block{
+
+        grid-template-columns:1fr;
+
+    }
+
+    #timer div{
+
+        width:110px;
+        height:110px;
+
+    }
+
+    #timer span{
+
+        font-size:1.8rem;
+
+    }
+
+    .letter-envelope{
+
+        width:95%;
+
+    }
+
+}
+
+.scratch-card{
+
+    position:relative;
+
+    width:140px;
+    height:140px;
+
+}
+
+.hidden-value{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-family:'Cormorant Garamond';
+
+    font-size:1.8rem;
+
+    z-index:1;
+
+}
+
+.scratch-card canvas{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:2;
+
+}
