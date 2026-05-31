@@ -5,56 +5,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // ----------------------------
-// КОНВЕРТ
-// ----------------------------
-
-const envelope = document.querySelector('.envelope-wrapper');
-const topPart = document.querySelector('.envelope-top');
-const bottomPart = document.querySelector('.envelope-bottom');
-const heroImage = document.querySelector('.hero-image');
-
-let opened = false;
-
-envelope.addEventListener('click', () => {
-
-    if(opened) return;
-
-    opened = true;
-
-    gsap.to(topPart,{
-        y:-180,
-        duration:1.2,
-        ease:"power3.inOut"
-    });
-
-    gsap.to(bottomPart,{
-        y:180,
-        duration:1.2,
-        ease:"power3.inOut"
-    });
-
-    gsap.to('.seal',{
-        scale:0,
-        duration:.5
-    });
-
-    gsap.to(heroImage,{
-        filter:"blur(0px)",
-        scale:1,
-        duration:2
-    });
-
-    setTimeout(()=>{
-        document
-        .getElementById("hero")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-    },1000);
-
-});
-
-// ----------------------------
 // СТРЕЛКА
 // ----------------------------
 
