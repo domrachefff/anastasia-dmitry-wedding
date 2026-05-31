@@ -107,6 +107,8 @@ p{
 
     background:var(--cream);
 
+    overflow:hidden;
+
 }
 
 .invite-title{
@@ -924,143 +926,121 @@ p{
 
 }
 
+/* ==========================
+   НОВЫЙ КОНВЕРТ
+========================== */
+
 .envelope-wrapper{
 
-    position:relative;
+    position:fixed;
 
-    width:340px;
-    height:260px;
+    inset:0;
+
+    width:100vw;
+    height:100vh;
 
     cursor:pointer;
 
 }
 
-.letter{
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:40px;
-
-    transform:translateX(-50%);
-
-    width:280px;
-    height:190px;
-
-    background:#fffdf8;
-
-    border-radius:6px;
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.15);
-
-    z-index:1;
-
-}
-
-.letter-content{
-
-    padding:40px;
-
-    text-align:center;
-
-}
-
-.letter-content h2{
-
-    font-family:
-    'Cormorant Garamond';
-
-    font-size:2rem;
-
-}
-
-.envelope{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:2;
-
-}
-
-.envelope-body{
-
-    position:absolute;
-
-    bottom:0;
-
-    width:100%;
-    height:180px;
-
-    background:#f3ede3;
-
-    border-radius:0 0 8px 8px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.15);
-
-}
-
-.envelope-flap{
+.envelope-top{
 
     position:absolute;
 
     top:0;
+    left:0;
 
     width:100%;
-    height:180px;
+    height:55vh;
 
-    background:#e7dfd2;
+    background:#f2e8da;
 
-    clip-path:
-    polygon(
+    clip-path:polygon(
         0 0,
         100% 0,
         50% 100%
     );
 
-    transform-origin:top;
+    z-index:2;
 
-    z-index:3;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.12);
 
 }
 
-.seal{
+.envelope-bottom{
 
     position:absolute;
 
-    left:50%;
+    bottom:0;
+    left:0;
 
-    top:115px;
+    width:100%;
+    height:55vh;
 
-    transform:translateX(-50%);
+    background:#eadfce;
 
-    width:70px;
-    height:70px;
+    clip-path:polygon(
+        0 100%,
+        100% 100%,
+        50% 0
+    );
 
-    border-radius:50%;
-
-    background:#7a1f25;
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-family:
-    'Cormorant Garamond';
-
-    font-size:1.6rem;
+    z-index:1;
 
     box-shadow:
-    0 8px 25px rgba(0,0,0,.25);
+    0 -10px 30px rgba(0,0,0,.12);
+
+}
+
+.wax-seal{
+
+    position:absolute;
+
+    width:min(140px,30vw);
+
+    left:50%;
+    top:50vh;
+
+    transform:
+    translate(-50%,-50%);
 
     z-index:5;
+
+    filter:
+    drop-shadow(
+        0 10px 20px rgba(0,0,0,.25)
+    );
+
+    animation:
+    sealPulse 3s ease-in-out infinite;
+
+}
+
+@keyframes sealPulse{
+
+    0%{
+
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+
+    }
+
+    50%{
+
+        transform:
+        translate(-50%,-50%)
+        scale(1.06);
+
+    }
+
+    100%{
+
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+
+    }
 
 }

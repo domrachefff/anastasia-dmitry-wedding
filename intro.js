@@ -1,47 +1,53 @@
-const envelope = document.querySelector('.envelope-wrapper');
-const flap =
-document.querySelector('.envelope-flap');
-const letter =
-document.querySelector('.letter');
-const seal = document.querySelector('.seal');
+const envelope =
+document.querySelector(".envelope-wrapper");
+
+const topPart =
+document.querySelector(".envelope-top");
+
+const bottomPart =
+document.querySelector(".envelope-bottom");
+
+const seal =
+document.querySelector(".wax-seal");
 
 let opened = false;
 
-envelope.addEventListener('click', () => {
+envelope.addEventListener("click",()=>{
 
     if(opened) return;
 
     opened = true;
 
     gsap.to(seal,{
+
         scale:0,
-        rotation:180,
-        duration:0.6
-    });
 
-    gsap.to(flap,{
+        opacity:0,
 
-        rotateX:-180,
+        rotation:90,
 
-        duration:1.3,
-
-        ease:"power3.inOut"
+        duration:.6
 
     });
 
-    gsap.to(letter,{
+    gsap.to(topPart,{
 
-        y:-170,
+        y:-window.innerHeight,
 
-        duration:1.4,
+        duration:1.8,
 
-        ease:"power3.inOut"
+        ease:"power4.inOut"
 
     });
 
-    gsap.to("#intro",{
-        scale:1.03,
-        duration:1.5
+    gsap.to(bottomPart,{
+
+        y:window.innerHeight,
+
+        duration:1.8,
+
+        ease:"power4.inOut"
+
     });
 
     setTimeout(()=>{
@@ -61,6 +67,6 @@ envelope.addEventListener('click', () => {
 
         });
 
-    },1400);
+    },1200);
 
 });
